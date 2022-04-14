@@ -1,0 +1,5 @@
+beautifulsoup4==4.11.1
+feedparser==6.0.8
+Pyrogram==1.2.9
+requests==2.22.0
+TgCrypto
