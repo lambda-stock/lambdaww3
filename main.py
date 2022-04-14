@@ -10,9 +10,10 @@ import html
 from bs4 import BeautifulSoup
 from urllib.parse import urlsplit
 
-api_id = 19068625
-api_hash = "69c2a6d36060b1e333348ccfad6ca768"
-bot_token = "5134739750:AAG9eBKTXaZJFfS96vbLKlEEpHNSGxRm8bY"
+#load_dotenv(".env", override=True)
+bot_token = os.environ['BOT_TOKEN']
+api_id = int(os.environ['API_ID'])
+api_hash = os.environ['API_HASH']
 
 app = Client(
     "lambdasession",
