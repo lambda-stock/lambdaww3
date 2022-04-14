@@ -1,0 +1,21 @@
+{
+    "name": "Lambda WW3",
+    "description": "Not required.",
+    "repository": "https://github.com/lambda-stock/lambdaww3/",
+    "env": {
+        "BOT_TOKEN": {
+            "description": "@Botfather"
+        },
+        "API_ID": {
+            "description": "https://my.telegram.org/apps"
+        },
+        "API_HASH": {
+            "description": "https://my.telegram.org/apps"
+        }
+    },
+    "buildpacks": [
+        {
+            "url": "heroku/python"
+        }
+    ]
+}
