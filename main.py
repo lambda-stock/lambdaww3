@@ -22,21 +22,20 @@ app = Client(
 
 NewsFeed = feedparser.parse("https://ww3turkce.xyz/haber/feed")
 
-entry = NewsFeed.entries[0]
-print(entry.keys())
-print(entry.content[0]["value"])
-kategori = entry.tags
-summaryText = html.unescape((entry.summary))
-
-
-print(entry.content)
-input_str = entry.content[0]["value"]
-soup = BeautifulSoup(input_str, "html.parser")
-new_url = soup.find('img')['src']
-print(new_url)
-
 @app.on_message(filters.command("start"))
 async def start(client, message):
+    await client.send_message(message.chat.id, "Bekleyin...")
+    entry = NewsFeed.entries[0]
+    print(entry.keys())
+    print(entry.content[0]["value"])
+    kategori = entry.tags
+    summaryText = html.unescape((entry.summary))
+    
+    print(entry.content)
+    input_str = entry.content[0]["value"]
+    soup = BeautifulSoup(input_str, "html.parser")
+    new_url = soup.find('img')['src']
+    print(new_url)
     await client.send_photo(message.chat.id, new_url, caption = f"""
     {
         kategori[0]["term"]} | **__ {
@@ -57,6 +56,17 @@ async def start(client, message):
 
 @app.on_message(filters.command("gonder"))
 async def gonder(client, message):
+    entry = NewsFeed.entries[0]
+    print(entry.keys())
+    print(entry.content[0]["value"])
+    kategori = entry.tags
+    summaryText = html.unescape((entry.summary))
+    
+    print(entry.content)
+    input_str = entry.content[0]["value"]
+    soup = BeautifulSoup(input_str, "html.parser")
+    new_url = soup.find('img')['src']
+    print(new_url)
     await client.send_photo("@ww3turkce", new_url, caption = f"""
     {
         kategori[0]["term"]} | **__ {
@@ -74,4 +84,5 @@ async def gonder(client, message):
                     url = entry.link
                 )]
         ]))
+
 app.run()
